@@ -14,14 +14,11 @@ M.downwidget = wibox.widget.textbox()
 vicious.register(M.downwidget, function(format, warg)
     local args = vicious.widgets.net(format, warg)
     -- Wireless
-    if type(args['{wlan0 down_kb}']) ~= nil then
-        args['{down}'] = args['{wlan0 down_kb}']
+    if type(args['{wlp1s0 down_kb}']) ~= nil then
+        args['{down}'] = args['{wlp1s0 down_kb}']
     -- Lenovo eth adapter
-    elseif type(args['{eth0 down_kb}']) ~= nil then
-        args['{down}'] = args['{eth0 down_kb}']
-    -- Apple adapter
-    elseif type(args['{enp0s20u2 down_kb}']) ~= nil then
-        args['{down}'] = args['{enp0s20u2 down_kb}']
+    elseif type(args['{enp3s0 down_kb}']) ~= nil then
+        args['{down}'] = args['{enp3s0 down_kb}']
     -- Unknown
     else
         args['{down}'] = '-.-'
@@ -33,14 +30,11 @@ M.upwidget = wibox.widget.textbox()
 vicious.register(M.upwidget, function(format, warg)
     local args = vicious.widgets.net(format, warg)
     -- Wireless
-    if type(args['{wlan0 up_kb}']) ~= nil then
-        args['{up}'] = args['{wlan0 up_kb}']
+    if type(args['{wlp1s0 up_kb}']) ~= nil then
+        args['{up}'] = args['{wlp1s0 up_kb}']
     -- Lenovo eth adapter
-    elseif type(args['{eth0 down_kb}']) ~= nil then
-        args['{up}'] = args['{eth0 up_kb}']
-    -- Apple adapter
-    elseif type(args['{enp0s20u2 down_kb}']) ~= nil then
-        args['{up}'] = args['{enp0s20u2 up_kb}']
+    elseif type(args['{enp3s0 down_kb}']) ~= nil then
+        args['{up}'] = args['{enp3s0 up_kb}']
     -- Unknown
     else
         args['{up}'] = '-.-'

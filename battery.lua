@@ -9,16 +9,16 @@ M.widget = wibox.widget.textbox()
 
 vicious.register(M.widget, function(format, warg)
   local args = vicious.widgets.bat(format, warg)
-  if args[2] < 25 then
+  if args[1] == '+' then
+    M.icon:set_image(beautiful.widget_batt_ac)
+  elseif args[2] < 25 then
     M.icon:set_image(beautiful.widget_batt_empty)
   elseif args[2] < 50 then
     M.icon:set_image(beautiful.widget_batt_low)
   elseif args[2] < 75 then
     M.icon:set_image(beautiful.widget_batt)
-  elseif args[2] < 100 then
+  elseif args[2] <= 100 then
     M.icon:set_image(beautiful.widget_batt_full)
-  else
-    M.icon:set_image(beautiful.widget_batt_ac)
   end
   return args
 end, '<span>$2%</span>', 10, 'BAT0')
